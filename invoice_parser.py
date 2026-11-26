@@ -11,6 +11,6 @@ def parse_amount(text: str) -> int:
         raise ValueError("invoice text does not contain an amount")
 
     whole = int(match.group(1))
-    fraction = (match.group(2) or "").ljust(2, "0")
+    fraction = (match.group(2) or "0").zfill(2)
     return whole * 100 + int(fraction or 0)
 
